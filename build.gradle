@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+war {
+	baseName = 'restservice'
+}
+repositories {
+	jcenter()
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+configurations {
+	providedRuntime
+}
+
+dependencies{
+
+	compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.25.1'
+	compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.25.1'
+
+}
